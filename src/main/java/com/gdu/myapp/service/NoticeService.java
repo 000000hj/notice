@@ -11,4 +11,5 @@ public interface NoticeService {
   //리스트 가져와!
  public List<NoticeDto>getNoticeList();
  public int addNotice(NoticeDto noticeDto);
+ public NoticeDto getNoticeByNo(int notice_no);
 }

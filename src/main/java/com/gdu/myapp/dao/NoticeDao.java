@@ -96,4 +96,40 @@ public class NoticeDao {
     return list;
   }
   
+  
+  //상세조회
+  public  NoticeDto select(int notice_no)
+  {
+    NoticeDto noticeDto=null;
+    
+    
+    try {
+      con=jdbcConnection.getConnection();
+      String sql="SELECT NOTICE_NO, GUBUN, TITLE, CONTENT FROM NOTICE_T WHERE NOTICE_NO = ?" ;
+      ps=con.prepareStatement(sql);
+      ps.setInt(1, notice_no);
+      rs=ps.executeQuery();
+      
+      if(rs.next())
+      {
+        noticeDto.setNotice_no(rs.getInt(1));
+        noticeDto.setGubun(rs.getInt(2));
+        noticeDto.setTitle(rs.getString(3));
+        noticeDto.setContent(rs.getString(4));
+      }
+      
+      
+    } catch (Exception e) {
+
+    e.printStackTrace();
+    }finally {
+      jdbcConnection.close(con, ps, rs);
+    }
+    
+    
+    
+    return noticeDto;
+    
+  }
+  
 }

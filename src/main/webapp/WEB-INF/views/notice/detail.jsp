@@ -12,11 +12,24 @@
 
   $(function(){
     fnModifyResult();
-    fnDeleteContact();
-    fnListContact();
+    fnDelete();
+    fnList();
+    fnChk();
   })
   
+  
+  function fnChk() {
+  	
+  	
+   	$('#btn_chk').click(function(){
+   		alert();
+    })
+	
+  }
+  
+  
   function fnModifyResult(){
+   	
     var modifyResult = '${modifyResult}';
     if(modifyResult !== ''){
       if(modifyResult === '1'){
@@ -27,7 +40,7 @@
     }
   }
   
-  function fnDeleteContact(){
+  function fnDelete(){
   $('#btn_delete').click(function(){
     if(confirm('연락처를 삭제할까요?')){
       $('#frm_detail').attr('action', '${contextPath}/contact/delete.do');
@@ -36,9 +49,10 @@
   })
   }
 
-  function fnListContact(){
+  function fnList(){
   $('#btn_list').click(function(){
-    location.href = '${contextPath}/contact/list.do';
+  	
+    location.href = '${contextPath}/notice/list.do';
   })
   }
   
@@ -46,34 +60,21 @@
 </head>
 <body>
 
-  <div>
-    <h3>연락처관리</h3>
-    <form id="frm_detail" method="post" action="${contextPath}/contact/modify.do">
-      <div>
-        <label for="name">이름</label>
-        <input type="text" id="name" name="name" value="${contact.name}">
-      </div>
-      <div>
-        <label for="tel">전화번호</label>
-        <input type="text" id="tel" name="tel" value="${contact.tel}">
-      </div>
-      <div>
-        <label for="email">이메일</label>
-        <input type="text" id="email" name="email" value="${contact.email}">
-      </div>
-      <div>
-        <label for="address">주소</label>
-        <input type="text" id="address" name="address" value="${contact.address}">
-      </div>
-      <div>
-        <input type="hidden" name="contact_no" value="${contact.contact_no}">
-        <button type="submit">수정</button>
-        <button type="button" id="btn_delete">삭제</button>
-        <button type="button" id="btn_list">목록</button>
-        <button type="reset">입력초기화</button>
-      </div>
-    </form>
-  </div>
+<div>
+
+<h1>   번 공지사항 </h1>
+
+
+
+<hr>
+<div>
+<button type="button" id="btn_modify">편집</button>
+<button type="button" id="btn_delete">삭제</button>
+<button type="button" id="btn_list">목록</button>
+<button type="button" id="btn_chk">확인</button>
+</div>
+
+</div>
 
 </body>
 </html>

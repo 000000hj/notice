@@ -13,7 +13,7 @@
 <script>
 
 $(function() {
-	fnList()
+  fnList()
 })
 
 
@@ -21,12 +21,12 @@ $(function() {
 
 
 function fnList() {
-	
-	$('#btn_list').click(function(){
-	
-		location.href="${contextPath}/notice/list.do";
-		
-	})
+  
+  $('#btn_list').click(function(){
+  
+    location.href="${contextPath}/notice/list.do";
+    
+  })
 }
 
 
@@ -42,9 +42,9 @@ function fnList() {
     <form   method="post" action="${contextPath}/notice/add.do">
       <div>
         <label for="gubun" >구분</label>
-        <select id="gubun" name="gubun">
-        <option value="1">긴급</option>
-        <option value="2" selected="selected">일반</option>
+        <select id="gubun" >
+        <option name="1"  value="1">긴급</option>
+        <option name="2"  value="2" selected="selected">일반</option>
         </select>
       </div>
       
@@ -63,6 +63,7 @@ function fnList() {
      
      
       <div>
+      
         <button type="submit">작성완료</button>
         <button type="button" id="btn_list">목록</button>
       </div>

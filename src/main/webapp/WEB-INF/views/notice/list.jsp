@@ -49,12 +49,12 @@ $(function(){
 </thead>
 <tbody id="list">
 
-  <c:forEach items="${noticeList}" var="n">
+  <c:forEach items="${noticeList}" var="item">
           <tr>
-            <td>${n.notice_no}</td>
-            <td><a href="${contextPath}/notice/detail.do">{c.title}</a></td>
+            <td>${item.notice_no}</td>   
+            <td><a href="${contextPath}/notice/detail.do">${item.title}</a></td>
           </tr>
-        </c:forEach>
+ </c:forEach>
 
 </tbody>
 
@@ -73,7 +73,7 @@ $(function(){
 
 
 
-<a href="${contextPath}/notice/write.do">새로운 링크 작성하러 가기</a>
+<a href="${contextPath}/notice/write.do">새로운 공지 작성하러 가기</a>
 
 </div>
 

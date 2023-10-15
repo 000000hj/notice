@@ -52,7 +52,7 @@ $(function(){
   <c:forEach items="${noticeList}" var="item">
           <tr>
             <td>${item.notice_no}</td>   
-            <td><a href="${contextPath}/notice/detail.do">${item.title}</a></td>
+            <td><a href="${contextPath}/notice/detail.do?notice_no=${item.notice_no}">${item.title}</a></td>
           </tr>
  </c:forEach>
 

@@ -62,6 +62,8 @@ public class NoticeController {
   //리스트에 삽입
   @RequestMapping(value = "/notice/add.do",method = RequestMethod.POST)
   public String add(NoticeDto noticeDto,RedirectAttributes redirectAttributes) {
+    
+    log.info("add:" + noticeDto);
   int addResult=noticeService.addNotice(noticeDto);
   redirectAttributes.addAttribute("addResult",addResult);
   return "redirect:/notice/list.do";
@@ -72,9 +74,9 @@ public class NoticeController {
   /*글 상세 보기 */
   @RequestMapping(value = "/notice/detail.do",method = RequestMethod.GET) 
   //요청 요청파라미터는 필수가 아니고 , 값이 없다면 0으로 처리할거야. 이 값은 notice_no 라고 부를거야.
-  public String detail(@RequestParam(value = "notice_no", required = false , defaultValue = "0") int notice_no,Model model) {
-   //notice_no를 전달해 받아온 notice 객체하나를 모델에 저장
-    
+  public String detail(@RequestParam(value = "notice_no", required = false , defaultValue = "0") int notice_no, Model model) {
+    log.info("detail:" + notice_no);
+    //notice_no를 전달해 받아온 notice 객체하나를 모델에 저장
     model.addAttribute("notice",noticeService.getNoticeByNo(notice_no));
     
     return "notice/detail";

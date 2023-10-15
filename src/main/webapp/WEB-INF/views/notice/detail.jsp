@@ -62,8 +62,13 @@
 
 <div>
 
-<h1>   번 공지사항 </h1>
-
+<h1> ${notice.notice_no}  번 공지사항 </h1>
+<div> 구분: <c:set var="gubun" value="${notice.gubun}"/>
+            <c:if test="${gubun==1}">긴급</c:if>
+            <c:if test="${gubun==2}">일반</c:if>
+            </div>
+<div> 제목: ${notice.title}</div>
+<div>${notice.content}</div>
 
 
 <hr>

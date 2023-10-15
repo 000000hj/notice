@@ -42,9 +42,9 @@ function fnList() {
     <form   method="post" action="${contextPath}/notice/add.do">
       <div>
         <label for="gubun" >구분</label>
-        <select id="gubun" >
-        <option name="1"  value="1">긴급</option>
-        <option name="2"  value="2" selected="selected">일반</option>
+        <select id="gubun" name=gubun >
+        <option   value="1" id="gubun">긴급</option>
+        <option   value="2" id="gubun"  selected="selected">일반</option>
         </select>
       </div>
       

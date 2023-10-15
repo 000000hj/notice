@@ -105,13 +105,15 @@ public class NoticeDao {
     
     try {
       con=jdbcConnection.getConnection();
-      String sql="SELECT NOTICE_NO, GUBUN, TITLE, CONTENT FROM NOTICE_T WHERE NOTICE_NO = ?" ;
+      String sql="SELECT NOTICE_NO, GUBUN, TITLE, CONTENT FROM NOTICE_T WHERE NOTICE_NO = ? " ;
       ps=con.prepareStatement(sql);
       ps.setInt(1, notice_no);
       rs=ps.executeQuery();
       
       if(rs.next())
       {
+        
+        noticeDto=new NoticeDto();
         noticeDto.setNotice_no(rs.getInt(1));
         noticeDto.setGubun(rs.getInt(2));
         noticeDto.setTitle(rs.getString(3));

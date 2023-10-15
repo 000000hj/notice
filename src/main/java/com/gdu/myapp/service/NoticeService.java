@@ -12,4 +12,5 @@ public interface NoticeService {
  public List<NoticeDto>getNoticeList();
  public int addNotice(NoticeDto noticeDto);
  public NoticeDto getNoticeByNo(int notice_no);
+ public int deleteNotice(int notice_no);
 }

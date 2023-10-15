@@ -82,8 +82,17 @@ public class NoticeController {
     return "notice/detail";
   }
   
-  
-  
-  
+  /*글삭제 */
+  @RequestMapping(value="/notice/delete.do", method=RequestMethod.POST)
+  public String delete(@RequestParam(value="notice_no", required=false, defaultValue="0") int notice_no, RedirectAttributes redirectAttributes) {
+    log.info("delete:" + notice_no);
+    int deleteResult =noticeService.deleteNotice(notice_no);
+    redirectAttributes.addFlashAttribute("deleteResult", deleteResult);
+    return "redirect:/notice/list.do";
+  }
   
 }
+  
+  
+  
+

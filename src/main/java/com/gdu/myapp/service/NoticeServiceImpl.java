@@ -37,10 +37,21 @@ public class NoticeServiceImpl implements NoticeService {
 
 
 
-
+//상세조회
 @Override
 public NoticeDto getNoticeByNo(int notice_no) {
 
   return noticeDao.select(notice_no);
+}
+
+
+// 선택한 글삭제(글번호) 
+@Override
+public int deleteNotice(int notice_no) {
+
+  int deleteResult=noticeDao.delete(notice_no);
+  
+  
+  return deleteResult;
 }
 }

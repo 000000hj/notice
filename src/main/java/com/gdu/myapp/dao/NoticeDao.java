@@ -134,4 +134,30 @@ public class NoticeDao {
     
   }
   
+  
+  
+  
+  //삭제
+  public int delete(int notice_no)
+  {
+   int deleteResult=0;
+   try {
+     con=jdbcConnection.getConnection();
+     String sql="DELETE FROM NOTICE_T WHERE NOTICE_T = ? ";
+     ps=con.prepareStatement(sql);
+     ps.setInt(1, notice_no);
+     deleteResult=ps.executeUpdate();
+     
+  } catch (Exception e) {
+    e.printStackTrace();
+}
+   
+   
+   
+   return deleteResult;
+    
+    
+  }
+  
+  
 }
